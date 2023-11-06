@@ -1,0 +1,71 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="author" content="Лисейчиков Глеб Вячеславович">
+    <meta name="description" content="Веб-программирование: Лабораторная работа №2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/stylesheets/styles.css"/>
+    <title>Лабораторная работа №2 | Веб-программирование</title>
+</head>
+
+<body>
+<jsp:include page="static/header.html"/>
+<br>
+<div>
+    <div id="buttons" class="inline">
+        <form action="${pageContext.request.contextPath}/server/" method="post" id="sendToServer">
+            <div class="X-button-group">
+                <div class="inner">Выберете X:</div>
+                <label>
+                    <select name="x" id="X_input" class="inner">
+                        <option value="">--Please choose X--</option>
+                        <option value="-4">-4</option>
+                        <option value="-3">-3</option>
+                        <option value="-2">-2</option>
+                        <option value="-1">-1</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </label>
+            </div>
+            <br>
+            <div class="Y-button-group">
+                <div class="inner">Введите Y:</div>
+                <div class="inner"><label>
+                    <input name="y" id="Y-input" type="text" placeholder="(от -5 до 5)" maxlength="6">
+                </label></div>
+            </div>
+            <br>
+            <div class="R-button-group">
+                <div class="inner">Введите R:</div>
+                <div class="inner"><label>
+                    <input name="r" id="R-input" type="text" placeholder="(от 2 до 5)" maxlength="6">
+                </label></div>
+            </div>
+            <br>
+            <div class="buttonResult">
+                <button class="checkResult" type="submit">
+                    Проверить
+                </button>
+            </div>
+            <br>
+            <div>
+                <div id="errorMessage"></div>
+            </div>
+        </form>
+    </div>
+    <br>
+    <div id="plot" class="inline">
+        <img src="${pageContext.request.contextPath}/areas.jpg">
+    </div>
+</div>
+<script src="${pageContext.request.contextPath}/scripts/script.js"></script>
+</body>
+</html>
