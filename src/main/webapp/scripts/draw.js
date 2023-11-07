@@ -95,3 +95,7 @@ function drawText() {
     ctx.fillText("R/2", maxLength / 2 + R / 2 - delta,  maxLength / 2 - delta);
     ctx.fillText("R", maxLength / 2 + R - delta / 2,  maxLength / 2 - delta);
 }
+
+function drawPoint(x, y, r) {
+    ctx.fillRect(maxLength / 2 + R * (x / r) - 1,maxLength / 2 - R * (y / r) - 1,2,2);
+}

@@ -1,6 +1,5 @@
 <%@ page import="se.ifmo.web.hard_lab2.dto.AllPoints" %>
 <%@ page import="se.ifmo.web.hard_lab2.dto.Point" %>
-<%@ page import="java.util.Collections" %>
 <%@ page import="java.util.List" %>
 <%@ page import="se.ifmo.web.hard_lab2.model.UpdateTable" %>
 <%@ page import="se.ifmo.web.hard_lab2.filter.ValidatePointFilter" %>
@@ -28,7 +27,6 @@
                 AllPoints allPoints = (AllPoints) request.getServletContext().getAttribute(UpdateTable.ALL_POINTS_ATTRIBUTE);
                 Point newPoint = (Point) request.getAttribute(ValidatePointFilter.VALID_POINT_FROM_REQUEST);
                 if (allPoints == null || allPoints.getPoints() == null || newPoint == null || allPoints.getPoints().get(newPoint.r()) == null) {
-//                if (allPoints == null) {
             %>
             <h4>
                 <span class="outputStub notification">Нет результатов</span>
@@ -63,9 +61,20 @@
     </div>
     <br>
     <div id="plot" class="inline">
-        <img src="${pageContext.request.contextPath}/areas.jpg">
+        <canvas id="canvas" width="350" height="350"></canvas>
     </div>
 </div>
+<script>
+    window.onload = () => {
+        <%  if (allPoints != null && allPoints.getPoints() != null && newPoint != null && allPoints.getPoints().get(newPoint.r()) != null) {
+                List<Point> points = allPoints.getPoints().get(newPoint.r());
+                for (Point point : points) { %>
+                    drawPoint(<%= point.x() %>, <%= point.y() %>, <%= point.r() %>);
+                <% } %>
+        <% } %>
+    }
+</script>
 <script src="${pageContext.request.contextPath}/scripts/script.js"></script>
+<script src="${pageContext.request.contextPath}/scripts/draw.js"></script>
 </body>
 </html>
