@@ -21,7 +21,7 @@
             <div class="X-button-group">
                 <div class="inner">Выберете X:</div>
                 <label>
-                    <select name="x" id="X_input" class="inner">
+                    <select name="x" id="X_input" class="inner X-input">
                         <option value="">--Please choose X--</option>
                         <option value="-4">-4</option>
                         <option value="-3">-3</option>
@@ -63,9 +63,10 @@
     </div>
     <br>
     <div id="plot" class="inline">
-        <img src="${pageContext.request.contextPath}/areas.jpg">
+        <canvas id="canvas" width="350" height="350"></canvas>
     </div>
 </div>
 <script src="${pageContext.request.contextPath}/scripts/script.js"></script>
+<script src="${pageContext.request.contextPath}/scripts/draw.js"></script>
 </body>
 </html>

@@ -99,3 +99,21 @@ function drawText() {
 function drawPoint(x, y, r) {
     ctx.fillRect(maxLength / 2 + R * (x / r) - 1,maxLength / 2 - R * (y / r) - 1,2,2);
 }
+
+canvas.onclick = (event) => {
+    if (validR()) {
+        const userR = getR();
+        document.getElementById("errorMessage").innerHTML = "";
+
+        const x = event.pageX - event.target.offsetLeft - maxLength / 2;
+        const y = maxLength / 2 - event.pageY + event.target.offsetTop;
+
+        document.getElementById("Y-input").value = Math.round(y / R * userR * 1000) / 1000;
+        document.querySelector(".X-input").value = Math.round(x / R * userR);
+        if (isValid()) {
+            document.getElementById('sendToServer').submit();
+        }
+    } else {
+        document.getElementById("errorMessage").innerHTML = "Value for R is not selected";
+    }
+}

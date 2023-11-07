@@ -7,32 +7,46 @@ form.addEventListener("submit", function (event) {
 
 function isValid() {
     let errorMessage = "";
-    const x_select_input= parseInt(document.getElementById("X_input").value);
-    if (isNaN(x_select_input) || -4 > x_select_input || x_select_input > 4) {
+    if (!validX()) {
         errorMessage += "Incorrect X\n";
     }
-    
-    let y_text = document.getElementById("Y-input").value.replaceAll(',', '.');
-    if (!isNaN(y_text)) {
-        y_text = parseFloat(y_text)
-        if (isNaN(y_text) || y_text < -5 || y_text > 5) {
-            errorMessage += "Incorrect Y\n";
-        }
-    } else {
+
+    if (!validY()) {
         errorMessage += "Incorrect Y\n";
     }
 
-    let r_text = document.getElementById("R-input").value.replaceAll(',', '.');
-    if (!isNaN(r_text)) {
-        r_text = parseFloat(r_text);
-        if (isNaN(r_text) || 2 > r_text || r_text > 5) {
-            errorMessage += "Incorrect R\n";
-        }
-    } else {
+    if (!validR()) {
         errorMessage += "Incorrect R\n";
     }
 
     document.getElementById("errorMessage").innerHTML = errorMessage;
     return errorMessage.length === 0;
+}
+
+function validR() {
+    let r_text = document.getElementById("R-input").value.replaceAll(',', '.');
+    if (isNaN(r_text)) {
+        return false;
+    }
+    r_text = parseFloat(r_text);
+    return !(isNaN(r_text) || 2 > r_text || r_text > 5);
+}
+
+function getR() {
+    return parseFloat(document.getElementById("R-input").value.replaceAll(',', '.'));
+}
+
+function validY() {
+    let y_text = document.getElementById("Y-input").value.replaceAll(',', '.');
+    if (isNaN(y_text)) {
+        return false;
+    }
+    y_text = parseFloat(y_text)
+    return !(isNaN(y_text) || y_text < -5 || y_text > 5);
+}
+
+function validX() {
+    const x_select_input= parseInt(document.getElementById("X_input").value);
+    return !(isNaN(x_select_input) || -4 > x_select_input || x_select_input > 4);
 }
 
