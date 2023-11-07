@@ -4,14 +4,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import se.ifmo.web.hard_lab2.dto.DirtyPoint;
-import se.ifmo.web.hard_lab2.model.Validator;
 import se.ifmo.web.hard_lab2.utils.ErrorPrinter;
-import se.ifmo.web.hard_lab2.utils.MapperRequestBodyToDirtyPoint;
-
-import java.io.BufferedReader;
-import java.util.HashMap;
-import java.util.Map;
 
 @WebServlet(value = "/server/*")
 public class ControllerServlet extends HttpServlet {

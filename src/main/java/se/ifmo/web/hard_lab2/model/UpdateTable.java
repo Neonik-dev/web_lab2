@@ -3,11 +3,7 @@ package se.ifmo.web.hard_lab2.model;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
 import se.ifmo.web.hard_lab2.dto.AllPoints;
-import se.ifmo.web.hard_lab2.dto.DirtyPoint;
 import se.ifmo.web.hard_lab2.dto.Point;
-import se.ifmo.web.hard_lab2.exceptions.InvalidDataExceptions;
-
-import java.io.IOException;
 
 import static se.ifmo.web.hard_lab2.filter.ValidatePointFilter.VALID_POINT_FROM_REQUEST;
 

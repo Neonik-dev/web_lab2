@@ -28,28 +28,5 @@ public class ValidatePointFilter implements Filter {
         } catch (InvalidDataExceptions | IOException e) {
             ErrorPrinter.print((HttpServletResponse) servletResponse, e.getMessage());
         }
-
-
-//        String x = request.getParameter("param_x");
-//        String y = request.getParameter("param_y");
-//        String r = request.getParameter("param_r");
-//
-//        if (Validator.validate(x, y, r)) {
-//            Attempt attempt = new Attempt(x, y, r);
-//
-//            HttpSession session = ((HttpServletRequest) request).getSession();
-//
-//            CollectionAttempts attempts = (CollectionAttempts) session.getAttribute("collectionAttempts");
-//            if (attempts == null) {
-//                attempts = new CollectionAttempts();
-//                session.setAttribute("collectionAttempts", attempts);
-//            }
-//
-//            attempts.add(attempt);
-//
-//            filterChain.doFilter(request, response);
-//        } else {
-//            ((HttpServletResponse) response).sendRedirect("/lab2/filter.jsp");
-//        }
     }
 }

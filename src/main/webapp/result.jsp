@@ -63,6 +63,9 @@
     <div id="plot" class="inline">
         <canvas id="canvas" width="350" height="350"></canvas>
     </div>
+    <div id="goBack">
+        <a href="${pageContext.request.contextPath}/index.jsp">Вернуться к форме</a>
+    </div>
 </div>
 <script>
     window.onload = () => {
