@@ -18,7 +18,7 @@ public class ValidatePointFilter implements Filter {
     public static final String VALID_POINT_FROM_REQUEST = "point";
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws ServletException {
         try {
             DirtyPoint dirtyPoint = MapperRequestBodyToDirtyPoint.mapper(servletRequest);
             Point point = new Validator(dirtyPoint).validate();

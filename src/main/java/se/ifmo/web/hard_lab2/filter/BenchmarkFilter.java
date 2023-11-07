@@ -14,7 +14,7 @@ public class BenchmarkFilter implements Filter {
     public static final String BENCHMARK_DATA = "benchmarks";
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws ServletException {
         try {
             long startTime = System.nanoTime();
 
